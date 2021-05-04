@@ -12,6 +12,7 @@ resource "oci_core_security_list" "public-security-list-app"{
 		destination = "0.0.0.0/0"
 		destination_type = "CIDR_BLOCK"
 		protocol = "all" 
+		description = "Default Egress - Allow All Outgoing Traffic"
 	}
 
 	ingress_security_rules { 
@@ -23,6 +24,7 @@ resource "oci_core_security_list" "public-security-list-app"{
 			  min = 22
 			  max = 22
 		  }
+		  description = "SSH from Bastion Compartment"
 	}
 
 	ingress_security_rules { 
@@ -34,6 +36,7 @@ resource "oci_core_security_list" "public-security-list-app"{
 			  min = 80
 			  max = 80
 		  }
+		  description = "Load Balancer HTTP Access"
 	}
 
 	ingress_security_rules { 
@@ -45,17 +48,19 @@ resource "oci_core_security_list" "public-security-list-app"{
 			  min = 3000
 			  max = 3000
 		  }
+		  description = "Grafana HTTP Access"
 	}
 
 	ingress_security_rules { 
 		  stateless = false
-		  source = "0.0.0.0/0"
+		  source = "10.0.1.0/24"
 		  source_type = "CIDR_BLOCK"
 		  protocol = "6"
 		  tcp_options { 
 			  min = 8080
 			  max = 8080
 		  }
+		  description = "Access to Dropwizard from Load Balancer"
 	}
 
 	ingress_security_rules { 
@@ -63,7 +68,7 @@ resource "oci_core_security_list" "public-security-list-app"{
 		  source = "0.0.0.0/0"
 		  source_type = "CIDR_BLOCK"
 		  protocol = "1"
- 
+		  description = "ICMP Access"
 	}   
   
 }	
@@ -80,6 +85,7 @@ resource "oci_core_security_list" "public-security-list-bastion"{
 		destination = "0.0.0.0/0"
 		destination_type = "CIDR_BLOCK"
 		protocol = "all" 
+		description = "Default Egress - Allow All Outgoing Traffic"
 	}
 
 	ingress_security_rules { 
@@ -91,6 +97,7 @@ resource "oci_core_security_list" "public-security-list-bastion"{
 			  min = 22
 			  max = 22
 		  }
+		  description = "SSH from Internet"
 	}
 
 	ingress_security_rules { 
@@ -98,7 +105,7 @@ resource "oci_core_security_list" "public-security-list-bastion"{
 		  source = "0.0.0.0/0"
 		  source_type = "CIDR_BLOCK"
 		  protocol = "1"
-
+		  description = "ICMP Access"
 	}   
   
 }	
