@@ -17,14 +17,14 @@ resource "oci_core_security_list" "public-security-list-app"{
 
 	ingress_security_rules { 
 		  stateless = false
-		  source = "172.16.0.0/16"
+		  source = "172.16.1.100/32"
 		  source_type = "CIDR_BLOCK"
 		  protocol = "6"
 		  tcp_options { 
 			  min = 22
 			  max = 22
 		  }
-		  description = "SSH from Bastion Compartment"
+		  description = "SSH from Bastion Compute"
 	}
 
 	ingress_security_rules { 

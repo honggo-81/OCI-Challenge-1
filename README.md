@@ -12,7 +12,6 @@ There are tasks that need to be done as part of provisioning
 1. Install JDK8 on the App Server compute
 2. Install Docker engine on the App Server compute
 
-Environment
 ![alt text](https://github.com/honggo-81/OCI-Challenge-1/blob/main/environment.png?raw=true)
 
 Pre-requisites
