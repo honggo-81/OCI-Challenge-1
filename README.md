@@ -11,7 +11,7 @@ Pre-requisite
 2. Terraform
 3. Windows Subsystem for Linux (Optional)
 
-Basic Build Step
+Build steps
 1. terraform init
 2. terraform plan
 3. terraform apply

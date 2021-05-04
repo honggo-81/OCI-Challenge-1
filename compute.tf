@@ -11,7 +11,7 @@ resource "oci_core_instance" "ubuntu_instance_1" {
 
     display_name = "app_server"
     create_vnic_details {
-        assign_public_ip = true
+        assign_public_ip = false
         subnet_id = oci_core_subnet.vcn-public-subnet-app.id
 		private_ip = "10.0.1.100"
 		
