@@ -1,6 +1,7 @@
 OCI-Challenge-1
 
 Write the terraform scripts to provision an environment similar to the diagram
+![alt text](https://github.com/honggo-81/OCI-Challenge-1/blob/main/environment.png?raw=true)
 
 There are tasks that need to be done as part of provisioning
 1. Install JDK8 on the App Server compute
